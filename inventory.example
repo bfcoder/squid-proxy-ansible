@@ -1,0 +1,8 @@
+[squid-proxy-server]
+<ip address>
+
+[squid-proxy-server:vars]
+ansible_ssh_user=ubuntu
+ansible_user=ubuntu
+network_name=<network_name>
+acl_network_ip=<network_ip>

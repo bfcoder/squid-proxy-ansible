@@ -1,0 +1,18 @@
+---
+- name: Add dependencies
+  apt:
+    name:
+      - squid
+    state: latest
+    update_cache: true
+
+- name: "Add config block to squid config file"
+  blockinfile:
+    path: /etc/squid/squid.conf
+    block: |
+      acl {{network_name}} src {{acl_network_ip}}
+
+      http_access allow {{network_name}}
+      http_access allow all # allow all clients
+
+      http_port 3128

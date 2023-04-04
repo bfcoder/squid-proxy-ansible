@@ -1,0 +1,8 @@
+---
+- hosts:
+    - squid-proxy-server
+  become: true
+  become_user: root
+  roles:
+    - role: essential
+    - role: squid
